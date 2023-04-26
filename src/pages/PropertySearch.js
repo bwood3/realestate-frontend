@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // eslint-disable-next-line no-unused-vars
 import PropertyCard from '../components/PropertyCard';
-import { createFavorite } from '../api/favoritesAPI';
+import { createFavorite } from '../api/api';
 const url = "https://propertysearchfinal-production.up.railway.app"
 const PropertySearch = () => {
     const [searchCriteria, setSearchCriteria] = useState({

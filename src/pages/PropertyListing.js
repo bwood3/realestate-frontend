@@ -1,9 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import PropertyListingForm from '../components/PropertyListingForm';
 import PropertyListingCard from '../components/PropertyListingCard';
-// import { createFavorite } from '../api/favoritesAPI';
-import { getProperties as getAllProperties, createProperty as addProperty, updateProperty, deleteProperty } from '../api/propertyListingAPI';
+import { getListingProperties, createProperty, updateProperty, deleteProperty } from '../api/api';
 
 function PropertyListing() {
     const [properties, setProperties] = useState([]);
@@ -13,12 +11,12 @@ function PropertyListing() {
     }, []);
 
     const fetchProperties = async () => {
-        const data = await getAllProperties();
+        const data = await getListingProperties();
         setProperties(data);
     };
 
     const handleAddProperty = async (property) => {
-        const newProperty = await addProperty(property);
+        const newProperty = await createProperty(property);
         setProperties([...properties, newProperty]);
     };
 
