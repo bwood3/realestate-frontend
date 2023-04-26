@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import PropertyForm from '../components/PropertyForm';
 import PropertyCard from '../components/PropertyCard';
 import { createFavorite } from '../api/favoritesAPI';
-import { getProperties as getAllProperties, createProperty as addProperty, updateProperty, deleteProperty } from '../api/propertyAPI';
+import { getProperties as getAllProperties, createProperty as addProperty, updateProperty, deleteProperty } from '../api/propertyListingAPI';
 
 function PropertyListing() {
     const [properties, setProperties] = useState([]);
@@ -45,7 +45,7 @@ function PropertyListing() {
         <div>
             <h1>Property Listing</h1>
             <PropertyForm onSubmit={handleAddProperty} />
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '400px', margin: 'auto' }}>
                 {properties.map((property) => (
                     <PropertyCard
                         key={property.id}
@@ -58,6 +58,7 @@ function PropertyListing() {
             </div>
         </div>
     );
+
 }
 
 export default PropertyListing;

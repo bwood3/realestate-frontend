@@ -1,12 +1,13 @@
 // src/components/PropertyForm.js
-
 import React, { useState } from 'react';
 
 function PropertyForm({ onSubmit }) {
     const [property, setProperty] = useState({
-        address: '',
+        location: '',
         price: '',
-        description: '',
+        sqrFootage: '',
+        bedrooms: '',
+        bathrooms: '',
     });
 
     const handleChange = (event) => {
@@ -17,21 +18,23 @@ function PropertyForm({ onSubmit }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         onSubmit(property);
-        setProperty({ address: '', price: '', description: '' });
+        setProperty({ location: '', price: '', sqrFootage: '', bedrooms: '', bathrooms: '' });
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <input
+                    style={{ maxWidth: '100%', padding: '5px' }}
                     type="text"
-                    name="address"
-                    placeholder="Address"
-                    value={property.address}
+                    name="location"
+                    placeholder="Location"
+                    value={property.location}
                     onChange={handleChange}
                     required
                 />
                 <input
+                    style={{ maxWidth: '100%', padding: '5px' }}
                     type="number"
                     name="price"
                     placeholder="Price"
@@ -39,13 +42,33 @@ function PropertyForm({ onSubmit }) {
                     onChange={handleChange}
                     required
                 />
-                <textarea
-                    name="description"
-                    placeholder="Description"
-                    value={property.description}
+                <input
+                    style={{ maxWidth: '100%', padding: '5px' }}
+                    type="number"
+                    name="sqrFootage"
+                    placeholder="Square Footage"
+                    value={property.sqrFootage}
                     onChange={handleChange}
                     required
-                ></textarea>
+                />
+                <input
+                    style={{ maxWidth: '100%', padding: '5px' }}
+                    type="number"
+                    name="bedrooms"
+                    placeholder="Bedrooms"
+                    value={property.bedrooms}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    style={{ maxWidth: '100%', padding: '5px' }}
+                    type="number"
+                    name="bathrooms"
+                    placeholder="Bathrooms"
+                    value={property.bathrooms}
+                    onChange={handleChange}
+                    required
+                />
                 <button type="submit">Add Property</button>
             </div>
         </form>
@@ -53,3 +76,4 @@ function PropertyForm({ onSubmit }) {
 }
 
 export default PropertyForm;
+

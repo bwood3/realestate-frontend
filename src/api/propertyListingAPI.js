@@ -1,4 +1,4 @@
-const apiUrl = 'https://propertysearchfinal-production.up.railway.app';
+const apiUrl = 'https://propertylistingfinal-production.up.railway.app';
 
 export const getProperties = async () => {
     const response = await fetch(`${apiUrl}/properties`);
@@ -6,13 +6,14 @@ export const getProperties = async () => {
 };
 
 export const createProperty = async (property) => {
-    await fetch(`${apiUrl}/properties`, {
+    const response = await fetch(`${apiUrl}/properties`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(property),
     });
+    return await response.json();
 };
 
 export const updateProperty = async (propertyId, property) => {
@@ -27,10 +28,6 @@ export const updateProperty = async (propertyId, property) => {
 
 export const deleteProperty = async (propertyId) => {
     await fetch(`${apiUrl}/properties/${propertyId}`, { method: 'DELETE' });
-};
-export const searchProperties = async (location) => {
-    const response = await fetch(`${apiUrl}/properties/search?location=${location}`);
-    return await response.json();
 };
 
 export const getPropertyById = async (propertyId) => {
