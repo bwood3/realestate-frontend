@@ -1,20 +1,20 @@
 // src/components/PropertyListingCard.js
 //for user/owner to view each listing on property listing page with ability to edit/delete
 import React, { useState } from 'react';
-import PropertyListingForm from './PropertyListingForm';
+import PropertyListingEditForm from './PropertyListingEditFrom';
 
 function PropertyListingCard({ property, onUpdate, onDelete }) {
     const [isEditing, setIsEditing] = useState(false);
 
     const handleUpdate = (updatedProperty) => {
-        onUpdate({ ...property, ...updatedProperty });
+        onUpdate({ id: property.id, ...updatedProperty });
         setIsEditing(false);
     };
 
     return (
         <div>
             {isEditing ? (
-                <PropertyListingForm onSubmit={handleUpdate} propertyData={property} />
+                <PropertyListingEditForm onSubmit={handleUpdate} propertyData={property} />
             ) : (
                 <>
                     {/* Display property details */}
