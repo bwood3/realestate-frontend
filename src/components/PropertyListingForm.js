@@ -23,6 +23,7 @@ function PropertyListingForm({ onSubmit, propertyData  }) {
         setProperty({ ...property, [name]: value });
     };
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
         onSubmit(property);

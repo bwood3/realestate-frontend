@@ -6,8 +6,8 @@ import PropertyListingEditForm from './PropertyListingEditFrom';
 function PropertyListingCard({ property, onUpdate, onDelete }) {
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleUpdate = (updatedProperty) => {
-        onUpdate({ id: property.id, ...updatedProperty });
+    const handleUpdate = (propertyId, updatedProperty) => {
+        onUpdate(propertyId, { ...updatedProperty });
         setIsEditing(false);
     };
 

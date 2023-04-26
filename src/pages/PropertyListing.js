@@ -22,9 +22,13 @@ function PropertyListing() {
         setProperties([...properties, newProperty]);
     };
 
-    const handleUpdateProperty = async (property) => {
-        await updateProperty(property);
-        fetchProperties();
+    const handleUpdateProperty = async (propertyId, updatedProperty) => {
+        await updateProperty(propertyId, updatedProperty);
+        setProperties(
+            properties.map((property) =>
+                property.id === propertyId ? updatedProperty : property
+            )
+        );
     };
 
     const handleDeleteProperty = async (propertyId) => {

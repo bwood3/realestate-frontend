@@ -17,14 +17,23 @@ export const createProperty = async (property) => {
 };
 
 export const updateProperty = async (propertyId, property) => {
-    await fetch(`${apiUrl}/properties/${propertyId}`, {
+    console.log("Sending update request with data:", property);
+    console.log("Sending update request with propertyId:", propertyId);
+    const response = await fetch(`${apiUrl}/properties/${propertyId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(property),
     });
+
+    if (!response.ok) {
+        console.error("Update request failed:", await response.text());
+    }
 };
+
+
+
 
 export const deleteProperty = async (propertyId) => {
     await fetch(`${apiUrl}/properties/${propertyId}`, { method: 'DELETE' });

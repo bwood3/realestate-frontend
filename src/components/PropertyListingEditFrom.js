@@ -23,8 +23,9 @@ function PropertyListingEditForm({ onSubmit, propertyData }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(property);
+        onSubmit(property.id, property, event);
     };
+
 
     return (
         <form onSubmit={handleSubmit}>
