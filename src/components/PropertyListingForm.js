@@ -1,7 +1,8 @@
-// src/components/PropertyForm.js
-import React, { useState } from 'react';
+// src/components/PropertyListingForm.js
+//for user to add property on property listing page
+import React, { useState, useEffect } from 'react';
 
-function PropertyForm({ onSubmit }) {
+function PropertyListingForm({ onSubmit, propertyData  }) {
     const [property, setProperty] = useState({
         location: '',
         price: '',
@@ -9,6 +10,13 @@ function PropertyForm({ onSubmit }) {
         bedrooms: '',
         bathrooms: '',
     });
+
+    useEffect(() => {
+        if (propertyData) {
+            setProperty(propertyData);
+        }
+    }, [propertyData]);
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -75,5 +83,5 @@ function PropertyForm({ onSubmit }) {
     );
 }
 
-export default PropertyForm;
+export default PropertyListingForm;
 
