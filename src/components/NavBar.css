@@ -1,7 +1,7 @@
 /* src/components/NavBar.css */
 
 .nav {
-    background-color: #333;
+    background-color: black;
     overflow: hidden;
 }
 
@@ -21,8 +21,29 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    position: relative; /* Add position relative for absolute position pseudo-element */
 }
 
-.nav li a:hover {
-    background-color: #111;
+.nav li a::after {
+    content: ''; /* animation effect for hover */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.1s ease-out, height 0.3s ease-out;
+}
+
+/* hover effects for navbar */
+.nav li a:hover::after {
+    width: 150%;
+    height: 150%;
+}
+
+.nav li a:active::after {
+    width: 125%;
+    height: 125%;
 }

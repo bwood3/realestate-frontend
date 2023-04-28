@@ -29,7 +29,7 @@ function PropertyListingEditForm({ onSubmit, propertyData }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', background: 'solid white', outline: "solid black" }}>
                 <input
                     style={{ maxWidth: '100%', padding: '5px' }}
                     type="text"
