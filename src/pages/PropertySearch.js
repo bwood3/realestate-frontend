@@ -19,7 +19,8 @@ const PropertySearch = () => {
     });
     const [searchResults, setSearchResults] = useState([]);
 
-    const handleSearch = async () => {
+    const handleSearch = async (event) => {
+        event.preventDefault();
         try {
             const response = await axios.get(
                 `${url}/properties/search`,
@@ -189,8 +190,8 @@ const PropertySearch = () => {
                             style={inputStyle}
                             />
                             </div>
-                            <button onClick={handleSearch} style={searchButtonStyle}>
-                            Search
+                            <button onClick={(event) => handleSearch(event)} style={searchButtonStyle}>
+                                Search
                             </button>
                             </form>
                             <div>

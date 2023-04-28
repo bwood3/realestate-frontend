@@ -63,7 +63,7 @@ function FavoritesList() {
                         key={property.id}
                         style={{
                             padding: '10px',
-                            backgroundColor: index % 2 === 0 ? '#c1e2ff' : '#e2ffc1',
+                            backgroundColor: '#c1e2ff',
                             border: '1px solid black',
                             borderWidth: '7px',
                             borderRadius: '6px',
